@@ -124,6 +124,6 @@ export default Component.extend({
   willDestroyElement() {
     this._super(...arguments);
 
-    this.$().unslick();
+    this.$().slick('unslick');
   }
 });

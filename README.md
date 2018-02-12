@@ -145,7 +145,7 @@ This widget supports the full range of slick-slider configuration options. The f
 
 * `git clone` this repository
 * `npm install`
-* `bower install`
+* `yarn`
 
 ## Running
 

@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { run } from '@ember/runloop';
 import layout from '../templates/components/slick-slider';
 
-export default Ember.Component.extend({
+const RESPONSIVE = [];
+
+export default Component.extend({
   layout: layout,
   accessibility: true,
   adaptiveHeight: true,
@@ -27,7 +30,7 @@ export default Ember.Component.extend({
   pauseOnHover: true,
   pauseOnDotsHover: false,
   respondTo: 'window',
-  responsive: [],
+  responsive: RESPONSIVE,
   rows: 1,
   slide: '',
   slidesPerRow: 1,
@@ -44,10 +47,12 @@ export default Ember.Component.extend({
   verticalSwiping: false,
   rtl: false,
 
-  _initializeSlick: Ember.on('didInsertElement', function() {
-    var _this = this;
+  didInsertElement() {
+    this._super(...arguments);
 
-    Ember.run.scheduleOnce('actions', this.$(), function() {
+    let _this = this;
+
+    run.scheduleOnce('actions', this.$(), function() {
       _this.sendAction('slickInit', this[0]);
     });
 
@@ -114,5 +119,5 @@ export default Ember.Component.extend({
     .on('swipe', function ($event, slick, direction) {
       _this.sendAction('swiped', slick, direction);
     });
-  })
+  }
 });

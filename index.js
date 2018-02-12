@@ -1,7 +1,5 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
-var fs = require('fs');
-var map = require('broccoli-stew').map;
 
 const Funnel = require('broccoli-funnel');
 const Merge = require('broccoli-merge-trees');

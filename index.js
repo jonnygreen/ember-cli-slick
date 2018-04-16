@@ -12,7 +12,7 @@ module.exports = {
   },
 
   treeForVendor: function(tree) {
-    let slickTree = fastbootTransform(new Funnel(path.join(this.project.nodeModulesPath, 'slick-carousel')));
+    let slickTree = fastbootTransform(new Funnel(path.join('node_modules', 'slick-carousel')));
 
     return new mergeTrees([tree, slickTree]);
   },
